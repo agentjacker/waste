@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="231101" android:versionName="2.31.1" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" package="io.zerion.android" platformBuildVersionCode="33" platformBuildVersionName="13">
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="33"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <uses-feature android:name="android.software.companion_device_setup" android:required="false"/>
+    <queries>
+        <package android:name="io.metamask"/>
+        <package android:name="com.pillarproject.wallet"/>
+        <package android:name="com.medishares.android"/>
+        <package android:name="vip.mytokenpocket"/>
+        <package android:name="com.mykey.id"/>
+        <package android:name="im.token.app"/>
+        <package android:name="io.nash.app"/>
+        <package android:name="com.wallet.crypto.trustapp"/>
+        <package android:name="im.argent.contractwalletclient"/>
+        <package android:name="io.gnosis.safe"/>
+        <package android:name="io.oneinch.android"/>
+        <package android:name="com.defi.wallet"/>
+        <package android:name="me.rainbow"/>
+        <intent android:autoVerify="true">
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent>
+        <intent android:autoVerify="true">
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="mailto"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent>
+        <intent android:autoVerify="true">
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:scheme="zerion"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <package android:name="com.instagram.android"/>
+        <package android:name="com.twitter.android"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.whatsapp"/>
+    </queries>
+    <queries>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <permission android:name="io.zerion.android.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="io.zerion.android.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="io.zerion.android.ZerionApplication" android:allowBackup="false" android:supportsRtl="true" android:extractNativeLibs="false" android:fullBackupContent="false" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:dataExtractionRules="@xml/data_extraction_rules">
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/z_notifications"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorAccent"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <activity android:theme="@style/SplashScreen" android:name="io.zerion.android.ui.launch.LaunchActivity" android:exported="true" android:launchMode="singleTop" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:label="" android:name="io.zerion.android.ui.main.MainActivity" android:launchMode="singleTop" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:theme="@style/AppTheme" android:label="" android:name="io.zerion.android.ui.accounts.EditWalletsContainerActivity" android:launchMode="singleTop"/>
+        <activity android:theme="@style/AppTheme" android:label="" android:name="io.zerion.android.ui.pincode.PincodeContainerActivity"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="io.zerion.android.ui.deeplink.DeepLinkActivity" android:exported="true" android:noHistory="true">
+            <intent-filter>
+                <action android:name="DEEP_LINK_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="zerion" android:host="open"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:host="@string/zerion_host" android:pathPattern="/.*"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:host="wallet.zerion.io" android:pathPattern="/.*"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:host="beta.zerion.io" android:pathPattern="/.*"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:host="link.zerion.io" android:pathPattern="/.*"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https" android:host="mz4ol-alternate.app.link" android:pathPattern="/.*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="zerion" android:host="purchase.crypto.completed"/>
+                <data android:scheme="zerion" android:host="wc" android:pathPattern="/.*"/>
+                <data android:scheme="zerion" android:host="app" android:pathPrefix=""/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="wc"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="zerion-wallet-wc" android:host="request"/>
+            </intent-filter>
+        </activity>
+        <service android:name="io.zerion.android.ui.notifications.ZerionMessagingService" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="io.zerion.android.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_ab4zmXDNTqHigQYn1OCeVheexypsgFyZ"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_pk4ua2rQJBLebNYg3QvfJofmDDbCaCKk"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <receiver android:name="io.zerion.android.ui.widgets.summary.simplified.SimplifiedSummaryWidgetProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/simplified_summary_widget"/>
+        </receiver>
+        <receiver android:name="io.zerion.android.ui.widgets.summary.detailed.DetailedSummaryWidgetProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/detailed_summary_widget"/>
+        </receiver>
+        <receiver android:name="io.zerion.android.ui.widgets.gas.GasPriceWidgetReceiver" android:enabled="@bool/glance_appwidget_available" android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/gas_price_widget_info"/>
+        </receiver>
+        <receiver android:name="io.zerion.android.ui.widgets.topPrices.TopPricesWidgetReceiver" android:enabled="@bool/glance_appwidget_available" android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/top_prices_widget_info"/>
+        </receiver>
+        <receiver android:name="io.zerion.android.ui.widgets.topPrices.TopPricesWidgetReceiver" android:enabled="@bool/glance_appwidget_available" android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/top_prices_widget_info"/>
+        </receiver>
+        <service android:name="io.zerion.android.ui.widgets.summary.AccountsAddressesRemoteViewsService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="io.zerion.android.ui.widgets.summary.detailed.AssetsRemoteViewsService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <activity android:theme="@style/Intercom.BaseMaterial.Compose" android:name="io.intercom.android.sdk.tickets.IntercomTicketActivity" android:exported="false" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/Intercom_LightBoxTheme" android:name="io.intercom.android.sdk.lightbox.LightBoxActivity" android:exported="false" android:configChanges="screenSize|orientation" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:theme="@style/Intercom_PostTheme" android:name="io.intercom.android.sdk.activities.IntercomPostActivity" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Intercom_PostTheme" android:name="io.intercom.android.sdk.post.PostActivityV2" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Intercom_NoteTheme" android:name="io.intercom.android.sdk.activities.IntercomNoteActivity" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:theme="@style/Intercom_ModalActivityTheme" android:name="io.intercom.android.sdk.activities.IntercomSheetActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Intercom_PanelTheme" android:name="io.intercom.android.sdk.activities.IntercomVideoActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Intercom_CarouselTheme" android:name="io.intercom.android.sdk.activities.IntercomCarouselActivity" android:exported="false" android:launchMode="singleTask" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Intercom.BaseMaterial" android:name="io.intercom.android.sdk.helpcenter.articles.ArticleActivity" android:exported="false" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Intercom.BaseMaterial.Compose" android:name="io.intercom.android.sdk.survey.ui.IntercomSurveyActivity" android:exported="false" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/Intercom.BaseMaterial" android:name="io.intercom.android.sdk.helpcenter.search.IntercomArticleSearchActivity" android:exported="false"/>
+        <activity android:theme="@style/Intercom.BaseMaterial.Transparent" android:name="io.intercom.android.sdk.push.IntercomPushTrampolineActivity" android:exported="false"/>
+        <activity android:theme="@style/Intercom.BaseMaterial.Compose" android:name="io.intercom.android.sdk.activities.IntercomConversationActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:theme="@style/Intercom_TransparentTheme" android:name="io.intercom.android.sdk.m5.IntercomRootActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/Intercom_TransparentTheme" android:name="io.intercom.android.sdk.tickets.create.ui.IntercomCreateTicketActivity" android:exported="false" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:name="io.intercom.android.sdk.push.IntercomPushBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="io.intercom.android.sdk.INTERCOM_PUSH_DISMISSED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="io.intercom.android.sdk.IntercomInitializeContentProvider" android:exported="false" android:authorities="io.zerion.android.IntercomInitializeContentProvider"/>
+        <receiver android:name="com.appsamurai.storyly.util.notification.StorylyNotificationReceiver" android:exported="false" android:process=":remote"/>
+        <activity android:name="androidx.compose.ui.tooling.PreviewActivity" android:exported="true"/>
+        <activity android:theme="@style/EasyPermissions.Transparent" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:exported="false"/>
+        <activity android:theme="@style/intercom_composer_full_screen_theme" android:name="com.intercom.input.gallery.GalleryInputFullScreenActivity" android:windowSoftInputMode="adjustNothing|stateVisible"/>
+        <activity android:theme="@style/intercom_composer_full_screen_theme" android:name="com.intercom.input.gallery.GalleryLightBoxActivity" android:configChanges="density|screenSize|screenLayout|orientation"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.ktx.FirebasePerfKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseRemoteConfigKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ktx.FirebaseCrashlyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:name="com.google.firebase.perf.provider.FirebasePerfProvider" android:exported="false" android:authorities="io.zerion.android.firebaseperfprovider" android:initOrder="101"/>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false" android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="io.zerion.android.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="androidx.glance.appwidget.action.ActionTrampolineActivity" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <data android:scheme="glance-action"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Widget.Glance.AppWidget.CallbackTrampoline" android:name="androidx.glance.appwidget.action.InvisibleActionTrampolineActivity" android:enabled="true" android:exported="false" android:taskAffinity="androidx.glance.appwidget.ListAdapterCallbackTrampoline" android:launchMode="singleInstance" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="glance-action"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="androidx.glance.appwidget.action.ActionCallbackBroadcastReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <data android:scheme="glance-action"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.glance.appwidget.MyPackageReplacedReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="io.zerion.android.androidx-startup">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="androidx.core.widget.RemoteViewsCompatService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <activity android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:enabled="false" android:exported="false" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/Theme.PlayCore.Transparent" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:enabled="false" android:exported="false" android:stateNotNeeded="true"/>
+        <service android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService" android:enabled="false" android:exported="true"/>
+        <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false" android:directBootAware="true"/>
+        <receiver android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>
